@@ -1,0 +1,22 @@
+[{
+    "logiciel": {
+        "id": 1,
+        "nom": "ccleaner",
+        "description": "nettoyeur de pc",
+        "categorie": [
+            "utilitaire",
+            "nettoyeur"
+        ]
+    }
+},
+{
+    "logiciel": {
+        "id": 2,
+        "nom": "paperport",
+        "description": "gestion des fichiers",
+        "categorie": [
+            "utilitaire",
+            "trie"
+        ]
+    }
+}]
