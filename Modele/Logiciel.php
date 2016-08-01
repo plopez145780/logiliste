@@ -1,18 +1,24 @@
 <?php
-class Logiciel{
+require_once 'Modele/Modele.php';
+
+class Logiciel extends Modele{
     private $id;
     private $nom;
     private $siteWeb;
     private $description;
     private $idCategorie;
+    
+    public function __construct(){
 
-    public function __construct($nom, $description, $idCategorie, $siteWeb = "", $id = null){
+    }
+
+    /*public function __construct($nom, $description, $idCategorie, $siteWeb = "", $id = null){
         setNom($nom);
         setDescription($description);
         setIdCategorie($idCategorie);
         setSiteWeb($siteWeb);
         setId($id);
-    }
+    }*/
     
     public function getId(){
         return $this->id;
@@ -43,5 +49,9 @@ class Logiciel{
     }
     public function setSiteWeb($siteWeb){
         $this->siteWeb = $siteWeb;
+    }
+
+    public function getLogiciels(){
+        return $this->getContenu('logiciels');
     }
 }

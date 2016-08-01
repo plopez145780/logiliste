@@ -1,0 +1,21 @@
+{
+    "categories": {
+        "categorie": [
+            {
+                "id": "1",
+                "nom": "utilitaire",
+                "description": "description utilitaire"
+            },
+            {
+                "id": "2",
+                "nom": "nettoyeur",
+                "description": "description nettoyeur"
+            },
+            {
+                "id": "3",
+                "nom": "trie",
+                "description": "description trie"
+            }
+        ]
+    }
+}

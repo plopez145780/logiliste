@@ -1,0 +1,26 @@
+{
+  "logitheque": {
+    "logiciel": [
+      {
+        "id": "1",
+        "date": "2016-07-31",
+        "nom": "ccleaner",
+        "description": "nettoyeur de pc",
+        "categorie": [
+          1,
+          2
+        ]
+      },
+      {
+        "id": "2",
+        "date": "2016-07-31",
+        "nom": "paperport",
+        "description": "gestion des fichiers",
+        "categorie": [
+          1,
+          3
+        ]
+      }
+    ]
+  }
+}

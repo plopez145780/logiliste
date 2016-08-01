@@ -1,14 +1,20 @@
 <?php
-class Categorie{
+require_once 'Modele/Modele.php';
+
+class Categorie extends Modele{
     private $id;
     private $nom;
     private $description;
     
-    public function __construct($nom, $description, $id){
+    public function __construct(){
+
+    }
+
+    /*public function __construct($nom, $description, $id){
         setNom($nom);
         setDescription($description);
         setId($id);
-    }
+    }*/
     
     public function getId(){
         return $this->id;
@@ -27,5 +33,9 @@ class Categorie{
     }
     public function setDescription($description){
         $this->description = $description;
+    }
+
+    public function getCategories(){
+        return $this->getContenu('categories');
     }
 }
