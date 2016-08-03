@@ -11,14 +11,6 @@ class Logiciel extends Modele{
     public function __construct(){
 
     }
-
-    /*public function __construct($nom, $description, $idCategorie, $siteWeb = "", $id = null){
-        setNom($nom);
-        setDescription($description);
-        setIdCategorie($idCategorie);
-        setSiteWeb($siteWeb);
-        setId($id);
-    }*/
     
     public function getId(){
         return $this->id;
@@ -52,6 +44,10 @@ class Logiciel extends Modele{
     }
 
     public function getLogiciels(){
-        return $this->getContenu('logiciels');
+        return $this->readContenu('logiciels');
+    }
+
+    public function setLogiciels($contenu){
+        return $this->writeContenu('logiciels', $contenu);
     }
 }

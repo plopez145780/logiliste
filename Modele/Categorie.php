@@ -9,12 +9,6 @@ class Categorie extends Modele{
     public function __construct(){
 
     }
-
-    /*public function __construct($nom, $description, $id){
-        setNom($nom);
-        setDescription($description);
-        setId($id);
-    }*/
     
     public function getId(){
         return $this->id;
@@ -36,6 +30,6 @@ class Categorie extends Modele{
     }
 
     public function getCategories(){
-        return $this->getContenu('categories');
+        return $this->readContenu('categories');
     }
 }
