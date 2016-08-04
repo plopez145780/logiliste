@@ -1,9 +1,10 @@
 <?php
+require_once 'Controleur.php';
 require_once 'Vue/Vue.php';
 require_once 'Modele/Logiciel.php';
 require_once 'Modele/Categorie.php';
 
-class ControleurLogiciel{
+class ControleurLogiciel extends Controleur {
     private $logiciel;
     private $categorie;
     
@@ -15,9 +16,7 @@ class ControleurLogiciel{
     public function index(){
         $contenuLogi = $this->logiciel->getLogiciels();
         $contenuCat = $this->categorie->getCategories();
-        
-        $vue = new Vue("Logiciel");
-        $vue->generer(array('logiciels' => $contenuLogi, 'categories' => $contenuCat,));
+        $this->genererVue(array('logiciels' => $contenuLogi, 'categories' => $contenuCat,));
     }
     
     public function add($form = null){
@@ -25,8 +24,8 @@ class ControleurLogiciel{
             $this->index();
         }
         else{
-            $vue = new Vue("FormAddLogiciel");
-            $vue->generer(array());
+            $this->genererVue(array());
+
         }
     }
     

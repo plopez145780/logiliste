@@ -3,8 +3,16 @@ class Vue{
     private $fichier;
     private $titre;
     
-    public function __construct($nomVue){
+    /*public function __construct($nomVue){
         $this->setFichier("Vue/vue" . $nomVue . ".php");
+    }*/
+
+    public function __construct($action, $controleur = "") {
+        $fichier = "Vue/";
+        if($controleur != ""){
+            $fichier = $fichier.$controleur."/";
+        }
+        $this->fichier = $fichier.$action.".php";
     }
     
     public function getfichier(){

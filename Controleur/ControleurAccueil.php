@@ -1,14 +1,14 @@
 <?php
 require_once 'Vue/Vue.php';
+require_once 'Controleur.php';
 
-class ControleurAccueil{
+class ControleurAccueil extends Controleur{
     public function __construct(){
 
     }
 
     public function index(){
-        $vue = new Vue("Accueil");
         $contenu = "Ceci est le texte de l'accueil, Bienvenue !";
-        $vue->generer(array('contenu'=>$contenu));
+        $this->genererVue(array('contenu'=>$contenu));
     }
 }

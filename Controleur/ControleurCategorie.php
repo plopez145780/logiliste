@@ -1,8 +1,9 @@
 <?php
+require_once 'Controleur.php';
 require_once 'Vue/Vue.php';
 require_once 'Modele/Categorie.php';
 
-class ControleurCategorie{
+class ControleurCategorie extends Controleur{
     private $categorie;
 
     public function __construct(){
@@ -11,9 +12,6 @@ class ControleurCategorie{
 
     public function index(){
         $contenuCat = $this->categorie->getCategories();
-        $vue = new Vue("Categorie");
-        $vue->generer(array('categories'=>$contenuCat));
-
-
+        $this->genererVue(array('categories'=>$contenuCat));
     }
 }
