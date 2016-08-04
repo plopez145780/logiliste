@@ -1,7 +1,7 @@
 <?php
 
-require_once 'Requete.php';
-require_once 'Vue/Vue.php';
+require_once 'Framework/Requete.php';
+require_once 'Framework/Vue.php';
 
 abstract class Controleur {
     private $action;

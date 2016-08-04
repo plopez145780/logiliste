@@ -1,12 +1,15 @@
 <?php
+
+require_once 'Framework/Configuration.php';
+
 class Vue{
     private $fichier;
     private $titre;
     
     /*public function __construct($nomVue){
-        $this->setFichier("Vue/vue" . $nomVue . ".php");
+    $this->setFichier("Vue/vue" . $nomVue . ".php");
     }*/
-
+    
     public function __construct($action, $controleur = "") {
         $fichier = "Vue/";
         if($controleur != ""){
@@ -30,7 +33,8 @@ class Vue{
     
     public function generer($donnees){
         $contenu = $this->genererFichier($this->getfichier(), $donnees);
-        $vue = $this->genererFichier('Vue/gabarit.php', array('titre' => $this->getTitre(), 'contenu' => $contenu));
+        $racineWeb = Configuration::get("racineWeb", "/");
+        $vue = $this->genererFichier('Vue/gabarit.php', array('titre' => $this->getTitre(), 'contenu' => $contenu, 'racineWeb' => $racineWeb,));
         echo $vue;
     }
     
@@ -49,6 +53,10 @@ class Vue{
         catch(Exception $e){
             echo $e->getMessage();
         }
-        
+    }
+    
+    // Nettoie une valeur insérée dans une page HTML //pas utiliser
+    private function nettoyer($valeur) {
+        return htmlspecialchars($valeur, ENT_QUOTES, 'UTF-8', false);
     }
 }

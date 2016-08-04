@@ -1,5 +1,5 @@
 <?php
-require_once 'Modele/Modele.php';
+require_once 'Framework/Modele.php';
 
 class Logiciel extends Modele{
     private $id;
