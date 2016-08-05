@@ -1,31 +1,35 @@
 <?php
 require_once 'Framework/Controleur.php';
 require_once 'Framework/Vue.php';
+require_once 'Modele/Logitheque.php';
 require_once 'Modele/Logiciel.php';
 require_once 'Modele/Categorie.php';
 
 class ControleurLogiciel extends Controleur {
-    private $logiciel;
+    private $logitheque;
     private $categorie;
     
     public function __construct(){
-        $this->logiciel = new Logiciel();
+        $this->logitheque = new Logitheque();
         $this->categorie = new Categorie();
     }
     
     public function index(){
-        $contenuLogi = $this->logiciel->getLogiciels();
+        $contenuLogi = $this->logitheque->getLogiciels();
         $contenuCat = $this->categorie->getCategories();
         $this->genererVue(array('logiciels' => $contenuLogi, 'categories' => $contenuCat,));
     }
     
-    public function add($form = null){
-        if($form == null){
-            $this->index();
-        }
-        else{
-            $this->genererVue(array());
+    public function add(){
+        if($this->requete->existeParametre('nom')){
+            $logiciel = new Logiciel();
+            $this->logitheque->add($logiciel);
 
+            $this->logitheque->setLogitheque();
+            //header("Location: ../../logiciel/index");
+        }
+        else {
+            $this->genererVue(array());
         }
     }
     

@@ -21,7 +21,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="/logiliste/index.php?action=accueil">Logiliste</a>
+          <a class="navbar-brand" href="">Logiliste</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

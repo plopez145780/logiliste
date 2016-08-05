@@ -2,18 +2,20 @@
 
 abstract class Modele {
     private $fichier;
+    private $chemin;
     
     protected function getFichier(){
         return $this->fichier;
     }
     protected function setFichier($fichier){
         $this->fichier = $fichier;
+        $this->chemin = "BD/$this->fichier.json";
     }
     
     protected function readContenu($fichier){
-        $this->setFichier($fichier);
         try{
-            $json = file_get_contents("BD/$this->fichier.json");
+            $this->setFichier($fichier);
+            $json = file_get_contents($this->chemin);
             if($json){
                 return json_decode($json);
             }
@@ -27,11 +29,12 @@ abstract class Modele {
     }
     
     protected function writeContenu($fichier, $contenu){
-        $this->setFichier($fichier);
         try{
-            if (file_put_contents("BD/$this->fichier.json", $contenu) === FALSE){
+            $this->setFichier($fichier);
+            $contenuEncode = json_encode($contenu);
+            /*if (file_put_contents($this->chemin, $contenuEncode) === FALSE){
                 throw new Exception("erreur : Lors de l'ecriture dans le ficher json 'BD/$this->fichier.json'", 1);
-            }
+            }*/
         }
         catch(Exception $e){
             echo $e->getMessage();

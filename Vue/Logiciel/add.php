@@ -1,6 +1,6 @@
 <?php $this->setTitre("Ajout de logiciel"); ?>
 
-  <form method="POST" action="">
+  <form method="POST" action="logiciel/add/">
     <div class="form-group">
       <label for="nom">Nom</label>
       <input type="text" class="form-control" required="" name="nom">

@@ -2,8 +2,10 @@
 
   <p>Liste des logiciels</p>
 
-  <a href="/logiliste/index.php?action=ajout_logiciel" class="btn btn-default">Ajouter</a>
-
+  <a href="logiciel/add/" class="btn btn-default">Ajouter Logiciel</a>
+  <a href="categorie/add/" class="btn btn-default">Ajouter Catégorie</a>
+  <br>
+  <br>
   <table class="table">
     <tr>
       <th>id</th>
@@ -14,21 +16,21 @@
 
     </tr>
     <tr>
-      <?php foreach ($logiciels->{'logitheque'}->{'logiciel'} as $value) : ?>
+      <?php foreach ($logiciels as $value) : ?>
         <td>
-          <?= $value->{'id'} ?>
+          <?= $value->getId() ?>
         </td>
         <td>
-          <?= $value->{'date'} ?>
+          <?= $value->getDate() ?>
         </td>
         <td>
-          <?= $value->{'nom'} ?>
+          <?= $value->getNom() ?>
         </td>
         <td>
-          <?= $value->{'description'} ?>
+          <?= $value->getDescription() ?>
         </td>
         <td>
-          <?php foreach ($value->{'categorie'} as $cat) : ?>
+          <?php foreach ($value->getIdCategorie() as $cat) : ?>
             <?php foreach ($categories->{'categories'}->{'categorie'} as $value2) : ?>
               <?php if($cat == $value2->{'id'}) : ?>
                 <span class="label label-primary"><?= $value2->{'nom'} ?></span>
